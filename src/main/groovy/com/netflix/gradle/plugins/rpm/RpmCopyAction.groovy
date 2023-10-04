@@ -35,8 +35,6 @@ import org.redline_rpm.payload.Directive
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-import java.nio.channels.FileChannel
-
 import static com.netflix.gradle.plugins.utils.GradleUtils.lookup
 
 @CompileDynamic
@@ -186,7 +184,10 @@ class RpmCopyAction extends AbstractPackagingCopyAction<Rpm> {
             Directive directive = (Directive) lookup(specToLookAt, 'fileType') ?: task.fileType
             String user = lookup(specToLookAt, 'user') ?: task.user
             String group = lookup(specToLookAt, 'permissionGroup') ?: task.permissionGroup
-            String setgid = lookup(specToLookAt, 'setgid') ?: task.setgid
+            Boolean setgid = lookup(specToLookAt, 'setgid')
+            if (setgid == null) {
+                setgid = task.setgid
+            }
             if (setgid) {
                 dirMode = dirMode | 02000
             }
