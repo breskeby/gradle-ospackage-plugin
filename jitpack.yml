@@ -1,0 +1,3 @@
+install:
+   - git config user.name jitpack
+   - ./gradlew publishToMavenLocal
