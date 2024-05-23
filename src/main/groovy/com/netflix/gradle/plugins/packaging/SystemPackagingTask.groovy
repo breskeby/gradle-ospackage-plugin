@@ -183,6 +183,7 @@ abstract class SystemPackagingTask extends OsPackageAbstractArchiveTask {
     @TaskAction
     @CompileDynamic
     void copy() {
+        println "SystemPackagingTask.copy"
         use(CopySpecEnhancement) {
             CopyActionExecuter copyActionExecuter = this.createCopyActionExecuter();
             CopyAction copyAction = this.createCopyAction();
