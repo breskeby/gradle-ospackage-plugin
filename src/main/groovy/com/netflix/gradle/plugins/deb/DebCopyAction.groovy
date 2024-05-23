@@ -142,6 +142,7 @@ class DebCopyAction extends AbstractPackagingCopyAction<Deb> {
             if (setgid == null) {
                 setgid = task.setgid
             }
+            println "dirDetails = ${dirDetails.path} setgid = $setgid"
             if (setgid) {
                 dirMode = dirMode | 02000
             }
