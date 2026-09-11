@@ -167,3 +167,9 @@ tasks.wrapper {
     gradleVersion = "9.5.1"
     distributionSha256Sum = "bafc141b619ad6350fd975fc903156dd5c151998cc8b058e8c1044ab5f7b031f"
 }
+// JitPack publishes to mavenLocal without a signing key. The plugin-publish plugin registers Sign
+// tasks that fail with "no configured signatory" in that environment. Disable signing so the fork
+// can be built and consumed from JitPack; signatures are not needed for local/JitPack consumption.
+tasks.withType(Sign).configureEach {
+    enabled = false
+}
