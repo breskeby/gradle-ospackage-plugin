@@ -1,0 +1,6 @@
+jdk:
+  - openjdk17
+install:
+  - git config user.name jitpack
+  - git config user.email build@jitpack.io
+  - ./gradlew publishToMavenLocal -x test

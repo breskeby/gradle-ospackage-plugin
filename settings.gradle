@@ -1,5 +1,9 @@
 plugins {
     id("com.netflix.nebula.oss.settings") version ("25.+")
+    // Allow Gradle to auto-provision the JDK toolchain required by this build (e.g. on JitPack build
+    // agents that do not ship the required JDK). Without a toolchain download repository the build
+    // fails with "No defined toolchain download url".
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.9.0")
 }
 
 rootProject.name='gradle-ospackage-plugin'
