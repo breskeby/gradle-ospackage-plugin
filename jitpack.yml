@@ -1,6 +1,5 @@
 jdk:
   - openjdk21
-  - openjdk17
 install:
   - git config user.name jitpack
   - git config user.email build@jitpack.io
